@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Matn qo'shish</button>
+    </form>
+    <ul>
+        {% for todo in todos %}
+        <li>
+            <input type="checkbox" {% if todo.completed %}checked{% endif %}>
+            {{ todo.title }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
